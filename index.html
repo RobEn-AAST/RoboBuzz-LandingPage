@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+<head>    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RoboBuzz Competition</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="https://img.icons8.com/ios-filled/50/robot-2.png">
@@ -34,14 +35,15 @@
             </div>
         </div>
     </nav>    <!-- Hero Section -->    
-    <header class="hero text-center py-5 d-flex align-items-center" style="background-image: url('assets/images/background.jpg'); background-size: cover; background-position: center;">
+    <header class="hero text-center d-flex align-items-center" style="background-image: url('assets/images/bg.webp'); background-size: cover; background-position: center;">
         <div class="container text-white">
             <h1 class="display-4 fw-bold mb-3">Welcome to RoboBuzz 2025</h1>
-            <p class="lead mb-4">The ultimate robotics competition for innovators and creators!</p>            <div class="hero-details mb-4">
+            <p class="lead mb-4">The Ultimate Engineering Challenge for Robotics Enthusiasts!</p>        
+            <div class="hero-details mb-4">
                 <div class="d-flex justify-content-center flex-wrap gap-4">
                     <div class="hero-detail">
                         <i class="bi bi-geo-alt-fill me-2"></i>
-                        <span>AAST Cairo Campus Building A, Engineering</span>
+                        <span>AAST Cairo Campus, Building A Engineering</span>
                     </div>
                     <div class="hero-detail">
                         <i class="bi bi-calendar-event-fill me-2"></i>
@@ -50,17 +52,20 @@
                 </div>
             </div>
             
-            
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSeT09veV899L6UHCBm22e7SAKT1Qf_BWO4yB5fsnhpbk7blcw/viewform?usp=header" target="_blank" class="btn btn-warning btn-lg fw-bold">Apply Now</a>
         </div>
-    </header>    
-    
-    <!-- Countdown Timer Section -->
+        
+        <!-- Scroll Down Button -->
+        <a href="#countdown" class="scroll-down">
+            <i class="bi bi-chevron-double-down"></i>
+            <span>Discover More</span>
+        </a>
+    </header> 
+      <!-- Countdown Timer Section -->
     <br>
-    <br>
-    <div class="countdown-container mb-5">
-        <h4 class="text-center mb-3">Registration Deadline: May 25, 2025</h4>
-        <div class="countdown-timer d-flex justify-content-center">
+    <div id="countdown" class="countdown-container mb-5 mx-auto">
+        <h4 class="text-center mb-3">Registration Deadline: May 28, 2025</h4>
+        <div class="countdown-timer">
             <div class="countdown-box">
                 <div id="days" class="countdown-value">00</div>
                 <div class="countdown-label">Days</div>
@@ -89,7 +94,7 @@
                         RoboBuzz is a dynamic robotics competition organized by RobEn club, designed to challenge participants in software, hardware, embedded systems, and electrical engineering knowledge. The competition features structured rounds, real-time scoring, and diverse question formats ranging from multiple choice to hands-on challenges.
                     </p>
                     <p class="fs-5">
-                        Behind the scenes, dedicated teams handle everything from question development and scoring rules to competition software and event logistics — ensuring an engaging and professional experience for all competitors.
+                        Our team works hard to create fun and fair challenges, clear scoring, and smooth event organization. We want every RoboBuzz competitor to have an exciting and rewarding experience.
                     </p>
                 </div>
                 <div class="col-lg-5 mt-4 mt-lg-0">
@@ -99,47 +104,75 @@
                 </div>
             </div>
         </div>
-    </section>
-    
-    <!-- Eligibility Section -->
+    </section>    <!-- Eligibility Section -->
     <section id="eligibility" class="section py-5 bg-light">
         <div class="container">
             <h2 class="mb-3 text-primary fw-bold">Eligibility</h2>
+            <br>            <!-- Skills Icons -->
+            <div class="skills-container">
+                <div class="skill-icon scroll-reveal">
+                    <div class="skill-icon-circle">
+                        <i class="bi bi-laptop"></i>
+                    </div>
+                    <div class="skill-title">Software</div>
+                    <div class="skill-subtitle">Programming & algorithms</div>
+                </div>
+                <div class="skill-icon scroll-reveal">
+                    <div class="skill-icon-circle">
+                        <i class="bi bi-gear-wide-connected"></i>
+                    </div>
+                    <div class="skill-title">Mechanical</div>
+                    <div class="skill-subtitle">Hardware design & assembly</div>
+                </div>
+                <div class="skill-icon scroll-reveal">
+                    <div class="skill-icon-circle">
+                        <i class="bi bi-lightning-charge-fill"></i>
+                    </div>
+                    <div class="skill-title">Electrical</div>
+                    <div class="skill-subtitle">Control systems & circuits</div>
+                </div>
+            </div>
+            
             <ul class="list-group list-group-flush fs-5">                
                 <li class="list-group-item bg-light">
-                    <i class="bi bi-check-circle-fill text-success me-2">
-                    </i>Open to all students from AASTMT</li>
+                    <i class="bi bi-check-circle-fill text-success me-2"></i>
+                    Open to all enrolled students of AASTMT
+                </li>
                 <li class="list-group-item bg-light">
-                    <i class="bi bi-check-circle-fill text-success me-2">
-                    </i>Teams of 4 members</li>
+                    <i class="bi bi-check-circle-fill text-success me-2"></i>
+                    Teams must consist of exactly four members
+                </li>
                 <li class="list-group-item bg-light">
-                    <i class="bi bi-check-circle-fill text-success me-2">
-                    </i>At least one member with coding skills</li>
+                    <i class="bi bi-check-circle-fill text-success me-2"></i>
+                    At least one team member must be familiar with software programming
+                </li>
                 <li class="list-group-item bg-light">
-                    <i class="bi bi-check-circle-fill text-success me-2">
-                    </i>At least one member familiar with hardware or electrical</li>
-                    <li class="list-group-item bg-light">
-                        <i class="bi bi-check-circle-fill text-success me-2">
-                        </i>At least one member familiar with mechanical engineering</li>
+                    <i class="bi bi-check-circle-fill text-success me-2"></i>
+                    At least one team member must be familiar with mechanical engineering/hardware
+                </li>
                 <li class="list-group-item bg-light">
-                    <i class="bi bi-check-circle-fill text-success me-2">
-                    </i>All team members must be present on the competition day</li>
+                    <i class="bi bi-check-circle-fill text-success me-2"></i>
+                    At least one team member must be familiar with electrical engineering/control systems
+                </li>
+                <li class="list-group-item bg-light">
+                    <i class="bi bi-check-circle-fill text-success me-2"></i>
+                    All team members are required to attend the competition in person
+                </li>
             </ul>
         </div>
-    </section>    
+    </section>
     <!-- Key Dates Section -->
     <section id="keydates" class="section py-5">
         <div class="container">
-            <h2 class="mb-3 text-primary fw-bold">Key Dates</h2>
-            <div class="row g-4">
+            <h2 class="mb-3 text-primary fw-bold">Key Dates</h2>            <div class="row g-4">
                 <div class="col-md-3 col-6">
-                    <div class="date-card border-0 shadow-sm h-100">
+                    <div class="date-card border-0 shadow-sm h-100 scroll-reveal">
                         <div class="date-header">
                             <i class="bi bi-calendar-check"></i>
                         </div>
                         <div class="date-body">
                             <h5 class="date-title">Registration Opens</h5>
-                            <p class="date-text">May 15, 2025</p>
+                            <p class="date-text">May 17, 2025</p>
                             <div class="date-badge">
                                 <span class="badge bg-success">Current Phase</span>
                             </div>
@@ -147,24 +180,24 @@
                     </div>
                 </div>
                 <div class="col-md-3 col-6">
-                    <div class="date-card border-0 shadow-sm h-100">
+                    <div class="date-card border-0 shadow-sm h-100 scroll-reveal">
                         <div class="date-header">
                             <i class="bi bi-calendar-x"></i>
                         </div>
                         <div class="date-body">
                             <h5 class="date-title">Registration Closes</h5>
-                            <p class="date-text">May 25, 2025</p>
+                            <p class="date-text">May 28, 2025</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-3 col-6">
-                    <div class="date-card border-0 shadow-sm h-100">
+                    <div class="date-card border-0 shadow-sm h-100 scroll-reveal">
                         <div class="date-header">
                             <i class="bi bi-list-check"></i>
                         </div>
                         <div class="date-body">
                             <h5 class="date-title">Shortlisting</h5>
-                            <p class="date-text">May 26, 2025</p>
+                            <p class="date-text">May 29, 2025</p>
                             <div class="date-info">
                                 <small>Teams notified by email</small>
                             </div>
@@ -172,7 +205,7 @@
                     </div>
                 </div>
                 <div class="col-md-3 col-6">
-                    <div class="date-card border-0 shadow-sm h-100">
+                    <div class="date-card border-0 shadow-sm h-100 scroll-reveal">
                         <div class="date-header">
                             <i class="bi bi-trophy"></i>
                         </div>
@@ -192,37 +225,10 @@
         <div class="container">
             <div class="section-header text-center mb-5">
                 <h2 class="mb-3 text-primary fw-bold">Agenda of the Day</h2>
-                <p class="lead">A day full of innovation, challenges, and robotics excellence</p>
+                <p class="lead">Gather your friends for an exciting day full of innovation, and challenges</p>
             </div>
-            
-            <div class="row mb-4">
-                <div class="col-md-6 mb-4 mb-md-0">
-                    <div class="agenda-overview p-4 rounded-3 shadow-sm">
-                        <h4 class="mb-3"><i class="bi bi-info-circle-fill me-2 text-warning"></i>Event Overview</h4>
-                        <p>Join us for an action-packed day of robotics challenges! The competition will feature multiple rounds, expert judges, and incredible prizes. Bring your team, your robot, and your A-game!</p>
-                        <div class="mt-3">
-                            <span class="badge rounded-pill bg-primary me-2 mb-1">Tech Workshops</span>
-                            <span class="badge rounded-pill bg-primary me-2 mb-1">Networking</span>
-                            <span class="badge rounded-pill bg-primary me-2 mb-1">Prizes</span>
-                            <span class="badge rounded-pill bg-primary mb-1">Industry Speakers</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="agenda-highlights p-4 rounded-3 shadow-sm">
-                        <h4 class="mb-3"><i class="bi bi-star-fill me-2 text-warning"></i>Highlights</h4>
-                        <ul class="list-unstyled">
-                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Live demonstrations from industry professionals</li>
-                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>$5,000 in prizes for winning teams</li>
-                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Networking with tech industry recruiters</li>
-                            <li><i class="bi bi-check-circle-fill text-success me-2"></i>Free refreshments and lunch for all participants</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="timeline enhanced-timeline">
-                <div class="timeline-item enhanced-item">
+              <div class="timeline enhanced-timeline">
+                <div class="timeline-item enhanced-item scroll-reveal">
                     <span class="timeline-time">09:00 AM</span> 
                     <div class="timeline-content">
                         <div class="timeline-icon">
@@ -230,16 +236,16 @@
                         </div>
                         <div class="timeline-details">
                             <h5 class="mb-1">Registration & Welcome</h5>
-                            <p class="mb-2">Check-in and welcome package distribution</p>
+                            <p class="mb-2">Check-in and Confirmation of Teams</p>
                             <div class="timeline-extra">
                                 <span class="badge bg-light text-dark">Main Hall</span>
-                                <small class="text-muted ms-2">45 mins</small>
+                                <small class="text-muted ms-2">30 mins</small>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="timeline-item enhanced-item">
-                    <span class="timeline-time">10:00 AM</span> 
+                <div class="timeline-item enhanced-item scroll-reveal">
+                    <span class="timeline-time">9:30 AM</span> 
                     <div class="timeline-content">
                         <div class="timeline-icon">
                             <i class="bi bi-megaphone"></i>
@@ -254,15 +260,15 @@
                         </div>
                     </div>
                 </div>
-                <div class="timeline-item enhanced-item">
-                    <span class="timeline-time">10:30 AM</span> 
+                <div class="timeline-item enhanced-item scroll-reveal">
+                    <span class="timeline-time">10:00 AM</span> 
                     <div class="timeline-content">
                         <div class="timeline-icon">
                             <i class="bi bi-robot"></i>
                         </div>
                         <div class="timeline-details">
                             <h5 class="mb-1">Competition Rounds Begin</h5>
-                            <p class="mb-2">Teams start their robotics challenges</p>
+                            <p class="mb-2">Teams start their challenges</p>
                             <div class="timeline-extra">
                                 <span class="badge bg-light text-dark">Competition Arena</span>
                                 <small class="text-muted ms-2">2.5 hrs</small>
@@ -270,23 +276,24 @@
                         </div>
                     </div>
                 </div>
-                <div class="timeline-item enhanced-item">
+                <div class="timeline-item enhanced-item scroll-reveal">
                     <span class="timeline-time">01:00 PM</span> 
                     <div class="timeline-content">
                         <div class="timeline-icon">
-                            <i class="bi bi-cup-hot"></i>
-                        </div>
+                         <i class="fa-solid fa-mosque"></i>
+                         </div>
                         <div class="timeline-details">
-                            <h5 class="mb-1">Lunch Break</h5>
-                            <p class="mb-2">Networking and refreshments provided</p>
+                            <h5 class="mb-1">Gomaa Prayer</h5>
+                            <p class="mb-2">A break for the Friday congregational prayer</p>
                             <div class="timeline-extra">
-                                <span class="badge bg-light text-dark">Cafeteria</span>
+                                <span class="badge bg-light text-dark">Prayer Hall</span>
                                 <small class="text-muted ms-2">1 hr</small>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="timeline-item enhanced-item">
+
+                <div class="timeline-item enhanced-item scroll-reveal">
                     <span class="timeline-time">02:00 PM</span> 
                     <div class="timeline-content">
                         <div class="timeline-icon">
@@ -302,7 +309,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="timeline-item enhanced-item">
+                <div class="timeline-item enhanced-item scroll-reveal">
                     <span class="timeline-time">04:00 PM</span> 
                     <div class="timeline-content">
                         <div class="timeline-icon">
@@ -392,7 +399,15 @@
     <footer class="bg-primary text-white py-4 mt-5">
         <div class="container d-flex flex-column align-items-center">
             <div class="footer-contact mb-3">
-                <p class="mb-2"><i class="bi bi-envelope-fill me-2"></i> For inquiries: <a href="mailto:info.robobuzz@gmail.com" class="text-warning">info.robobuzz@gmail.com</a></p>
+                <p class="mb-2">
+                    <i class="bi bi-envelope-fill me-2"></i>
+                    For inquiries: <a href="mailto:info.robobuzz@gmail.com" class="text-warning">info.robobuzz@gmail.com</a>
+                </p>
+                <p class="mb-2">
+                    <i class="bi bi-whatsapp me-2"></i>
+                    Or contact through WhatsApp: 
+                    <a href="https://wa.me/201550330744" class="text-warning" target="_blank">+20 155 033 0744</a>
+                </p>
             </div>
             <p class="mb-0">&copy; 2025 RoboBuzz. All rights reserved for RobEn.</p>
         </div>
