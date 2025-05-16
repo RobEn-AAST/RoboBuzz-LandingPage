@@ -627,7 +627,6 @@ footer {
     gap: 30px;
     margin-bottom: 20px;
     margin-top: 15px;
-
 }
 
 .skill-icon {
@@ -636,6 +635,7 @@ footer {
     align-items: center;
     width: 200px;
     text-align: center;
+    margin: 0 auto;
 }
 
 .skill-icon-circle {
@@ -701,6 +701,9 @@ footer {
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.8s ease, transform 0.8s ease;
+    will-change: opacity, transform;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 
 .scroll-reveal.revealed {
@@ -712,6 +715,7 @@ footer {
     opacity: 0;
     transform: translateY(50px);
     transition: all 0.8s cubic-bezier(0.25, 0.1, 0.25, 1.0);
+    will-change: opacity, transform;
 }
 
 .timeline-item.scroll-reveal.revealed {
@@ -751,5 +755,52 @@ footer {
     .timeline-time {
         font-size: 0.85rem;
         padding: 4px 12px;
+    }
+
+    /* Mobile adjustments for skill icons */
+    .skills-container {
+        gap: 15px;
+    }
+    
+    .skill-icon {
+        width: 120px;
+        margin-bottom: 20px;
+    }
+    
+    .skill-icon-circle {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .skill-icon-circle i {
+        font-size: 35px;
+    }
+    
+    .skill-title {
+        font-size: 0.9rem;
+    }
+    
+    .skill-subtitle {
+        font-size: 0.8rem;
+    }
+}
+
+/* Add fallback for no JavaScript environments */
+html:not(.js-enabled) .scroll-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+}
+
+/* Media query for devices that might not support animations well */
+@media (prefers-reduced-motion: reduce) {
+    .scroll-reveal {
+        transition: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+    
+    .scroll-down {
+        animation: none !important;
     }
 }

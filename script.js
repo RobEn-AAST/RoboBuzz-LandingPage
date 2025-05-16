@@ -1,5 +1,8 @@
 // Smooth scroll for nav links and scroll-down button
 document.addEventListener('DOMContentLoaded', function() {
+    // Add a class to indicate JS is enabled
+    document.documentElement.classList.add('js-enabled');
+    
     const navLinks = document.querySelectorAll('.navbar-nav a, .btn[href^="#"], .scroll-down');
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
@@ -51,11 +54,21 @@ document.addEventListener('DOMContentLoaded', function() {
         };
     };
     
-    // Initial check on page load
-    setTimeout(handleScrollAnimation, 100);
+    // Initial check on page load with a delay to ensure DOM is ready
+    setTimeout(handleScrollAnimation, 300);
     
     // Add scroll event listener with throttling
     window.addEventListener('scroll', throttle(() => {
+        handleScrollAnimation();
+    }, 100));
+    
+    // Add additional event listeners for mobile devices
+    window.addEventListener('touchmove', throttle(() => {
+        handleScrollAnimation();
+    }, 100));
+    
+    // Force check on resize (orientation change on mobile)
+    window.addEventListener('resize', throttle(() => {
         handleScrollAnimation();
     }, 100));
 });
@@ -150,3 +163,20 @@ const countdownTimer = setInterval(function() {
         }
     }
 }, 1000);
+
+// Fallback to ensure elements are visible if JavaScript fails or on very old browsers
+document.addEventListener('DOMContentLoaded', function() {
+    // Add a class to indicate JS is working
+    document.body.classList.add('js-enabled');
+    
+    // Fallback - if no animation after 3 seconds, show all elements
+    setTimeout(function() {
+        const unrevealed = document.querySelectorAll('.scroll-reveal:not(.revealed)');
+        if (unrevealed.length > 0) {
+            console.log('Forcing reveal of', unrevealed.length, 'elements');
+            unrevealed.forEach(el => {
+                el.classList.add('revealed');
+            });
+        }
+    }, 3000);
+});
