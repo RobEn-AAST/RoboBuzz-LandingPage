@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // No extra JS needed for Bootstrap accordion (FAQ toggle)
-const countdownDate = new Date("May 29, 2025 00:00:00").getTime();
+const countdownDate = new Date("November 11, 2025 00:00:00").getTime();
 
 // Store previous values to detect changes
 let prevDays, prevHours, prevMinutes, prevSeconds;
