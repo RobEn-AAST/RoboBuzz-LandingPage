@@ -17,60 +17,74 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Scroll reveal animation
-    const scrollElements = document.querySelectorAll('.scroll-reveal');
+    // Enhanced Scroll Reveal Animation using Intersection Observer
+    const scrollRevealElements = document.querySelectorAll(
+        '.scroll-reveal, .scroll-reveal-left, .scroll-reveal-right, .scroll-reveal-scale'
+    );
     
-    // Function to check if element is in view
-    const isElementInViewport = (el) => {
-        const rect = el.getBoundingClientRect();
-        const windowHeight = window.innerHeight || document.documentElement.clientHeight;
-        // Element is considered in viewport when it's 20% visible
-        const threshold = 0.2;
-        return (
-            rect.top <= windowHeight * (1 - threshold) && 
-            rect.bottom >= windowHeight * threshold
-        );
-    };
-    
-    // Function to handle scroll and reveal elements
-    const handleScrollAnimation = () => {
-        scrollElements.forEach((el) => {
-            if (isElementInViewport(el) && !el.classList.contains('revealed')) {
-                el.classList.add('revealed');
-            }
-        });
-    };
-    
-    // Throttle function to limit how often the scroll handler runs
-    const throttle = (fn, delay) => {
-        let lastCall = 0;
-        return function(...args) {
-            const now = new Date().getTime();
-            if (now - lastCall < delay) {
-                return;
-            }
-            lastCall = now;
-            return fn(...args);
+    // Check if browser supports Intersection Observer
+    if ('IntersectionObserver' in window) {
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15 // Trigger when 15% of element is visible
         };
-    };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                    // Optional: Stop observing after reveal (comment out to allow re-trigger)
+                    // observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all scroll reveal elements
+        scrollRevealElements.forEach(element => {
+            observer.observe(element);
+        });
+    } else {
+        // Fallback for browsers that don't support Intersection Observer
+        const handleScrollAnimation = () => {
+            scrollRevealElements.forEach((el) => {
+                const rect = el.getBoundingClientRect();
+                const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+                const isVisible = rect.top <= windowHeight * 0.85 && rect.bottom >= 0;
+                
+                if (isVisible && !el.classList.contains('revealed')) {
+                    el.classList.add('revealed');
+                }
+            });
+        };
+        
+        // Throttle function
+        const throttle = (fn, delay) => {
+            let lastCall = 0;
+            return function(...args) {
+                const now = new Date().getTime();
+                if (now - lastCall < delay) return;
+                lastCall = now;
+                return fn(...args);
+            };
+        };
+        
+        // Initial check
+        setTimeout(handleScrollAnimation, 100);
+        
+        // Add scroll listener with throttling
+        window.addEventListener('scroll', throttle(handleScrollAnimation, 100));
+        window.addEventListener('resize', throttle(handleScrollAnimation, 200));
+    }
     
-    // Initial check on page load with a delay to ensure DOM is ready
-    setTimeout(handleScrollAnimation, 300);
-    
-    // Add scroll event listener with throttling
-    window.addEventListener('scroll', throttle(() => {
-        handleScrollAnimation();
-    }, 100));
-    
-    // Add additional event listeners for mobile devices
-    window.addEventListener('touchmove', throttle(() => {
-        handleScrollAnimation();
-    }, 100));
-    
-    // Force check on resize (orientation change on mobile)
-    window.addEventListener('resize', throttle(() => {
-        handleScrollAnimation();
-    }, 100));
+    // Fallback - reveal all elements after 3 seconds if not revealed
+    setTimeout(() => {
+        const unrevealed = document.querySelectorAll(
+            '.scroll-reveal:not(.revealed), .scroll-reveal-left:not(.revealed), ' +
+            '.scroll-reveal-right:not(.revealed), .scroll-reveal-scale:not(.revealed)'
+        );
+        unrevealed.forEach(el => el.classList.add('revealed'));
+    }, 3000);
 });
 
 // No extra JS needed for Bootstrap accordion (FAQ toggle)
@@ -164,19 +178,8 @@ const countdownTimer = setInterval(function() {
     }
 }, 1000);
 
-// Fallback to ensure elements are visible if JavaScript fails or on very old browsers
+// Fallback to ensure elements are visible if JavaScript fails
 document.addEventListener('DOMContentLoaded', function() {
     // Add a class to indicate JS is working
     document.body.classList.add('js-enabled');
-    
-    // Fallback - if no animation after 3 seconds, show all elements
-    setTimeout(function() {
-        const unrevealed = document.querySelectorAll('.scroll-reveal:not(.revealed)');
-        if (unrevealed.length > 0) {
-            console.log('Forcing reveal of', unrevealed.length, 'elements');
-            unrevealed.forEach(el => {
-                el.classList.add('revealed');
-            });
-        }
-    }, 3000);
 });
